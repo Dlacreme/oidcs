@@ -26,6 +26,7 @@ defmodule OIDCWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/sign_in", SignInController, :index
   end
 
   scope "/sso", OIDCWeb do
