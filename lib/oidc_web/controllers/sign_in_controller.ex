@@ -17,7 +17,7 @@ defmodule OIDCWeb.SignInController do
         |> sign_in(params)
 
       user ->
-        login_user(user)
+        login_user(conn, user)
     end
   end
 
@@ -33,19 +33,16 @@ defmodule OIDCWeb.SignInController do
   def do_sign_up(conn, params) do
     case Account.create_user(params) do
       {:ok, user} ->
-        login_user(user)
+        login_user(conn, user)
 
-      {:error, err} ->
-        IO.inspect(err, label: "error")
-
+      _ ->
         conn
         |> assign(:error, "failed to create account")
         |> sign_up(params)
     end
   end
 
-  defp login_user(user) do
-    IO.inspect(user, label: "logged user")
-    raise "success"
+  defp login_user(conn, user) do
+    OIDCCore.Endpoint.Authorization.callback(conn, user.id)
   end
 end
