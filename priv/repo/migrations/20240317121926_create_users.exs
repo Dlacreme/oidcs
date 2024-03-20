@@ -1,4 +1,4 @@
-defmodule OIDC.Repo.Migrations.CreateUsers do
+defmodule OIDCS.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change do

@@ -1,4 +1,4 @@
-# OIDC
+# OIDCS
 
 To start your Phoenix server:
 

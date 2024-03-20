@@ -7,21 +7,21 @@
 # General application configuration
 import Config
 
-config :oidc_core, OIDCCore.Server, OIDC.Server
+config :coroidc, Coroidc.Server, OIDCS.Server
 
-config :oidc,
-  ecto_repos: [OIDC.Repo],
+config :oidcs,
+  ecto_repos: [OIDCS.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
 # Configures the endpoint
-config :oidc, OIDCWeb.Endpoint,
+config :oidcs, OIDCSWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: OIDCWeb.ErrorHTML, json: OIDCWeb.ErrorJSON],
+    formats: [html: OIDCSWeb.ErrorHTML, json: OIDCSWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: OIDC.PubSub,
+  pubsub_server: OIDCS.PubSub,
   live_view: [signing_salt: "sAa0vcPA"]
 
 # Configures the mailer
@@ -31,7 +31,7 @@ config :oidc, OIDCWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :oidc, OIDC.Mailer, adapter: Swoosh.Adapters.Local
+config :oidcs, OIDCS.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

@@ -8,8 +8,8 @@ const path = require("path")
 module.exports = {
   content: [
     "./js/**/*.js",
-    "../lib/oidc_web.ex",
-    "../lib/oidc_web/**/*.*ex"
+    "../lib/oidcs_web.ex",
+    "../lib/oidcs_web/**/*.*ex"
   ],
   theme: {
     extend: {
