@@ -1,4 +1,4 @@
-defmodule OIDCWeb.SSOErrorController do
+defmodule OIDCWeb.ErrorController do
   use OIDCWeb, :controller
 
   def index(conn, params) do

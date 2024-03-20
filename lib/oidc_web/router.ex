@@ -32,12 +32,6 @@ defmodule OIDCWeb.Router do
     post "/sign_up", SignInController, :do_sign_up
   end
 
-  scope "/sso", OIDCWeb do
-    pipe_through :no_csrf_browser
-
-    post "/error", SSOErrorController, :index
-  end
-
   scope "/oauth2", OIDCCore.Endpoint do
     pipe_through :browser
 

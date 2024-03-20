@@ -43,6 +43,6 @@ defmodule OIDCWeb.SignInController do
   end
 
   defp login_user(conn, user) do
-    OIDCCore.Endpoint.Authorization.callback(conn, user.id)
+    OIDCCore.authorize(conn, user.id)
   end
 end

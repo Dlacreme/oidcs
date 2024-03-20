@@ -7,9 +7,7 @@
 # General application configuration
 import Config
 
-config :oidc_core, OIDCCore.Server,
-  error_page_url: "/sso/error",
-  authentication_form_url: "/sign_in"
+config :oidc_core, OIDCCore.Server, OIDC.Server
 
 config :oidc,
   ecto_repos: [OIDC.Repo],

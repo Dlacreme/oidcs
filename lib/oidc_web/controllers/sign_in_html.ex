@@ -12,8 +12,8 @@ defmodule OIDCWeb.SignInHTML do
         </div>
 
         <input type="hidden" name="_csrf_token" value={@csrf_token} readonly />
-        <input type="text" name="email" value={@email} />
-        <input type="password" name="password" />
+        <input type="text" name="email" value={@email || "toto@tata.fr"} />
+        <input type="password" name="password" value="totototo" />
 
         <button type="submit">
           log in
