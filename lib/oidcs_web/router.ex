@@ -10,14 +10,6 @@ defmodule OIDCSWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :no_csrf_browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, html: {OIDCSWeb.Layouts, :root}
-    plug :put_secure_browser_headers
-  end
-
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -33,10 +25,9 @@ defmodule OIDCSWeb.Router do
   end
 
   scope "/" do
-    pipe_through :browser
-
-		get("/.well-known/openid-configuration", Coroidc.Endpoint.Discovery, :any)
+    get("/.well-known/openid-configuration", Coroidc.Endpoint.Discovery, :any)
     get("/oauth2/authorize", Coroidc.Endpoint.Authorization, :any)
+    post("/oauth2/token", Coroidc.Endpoint.Token, :any)
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
